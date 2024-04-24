@@ -1,4 +1,4 @@
-ssignment name  : ft_strcpy
+Assignment name  : ft_strcpy
 Expected files   : ft_strcpy.c
 Allowed functions: 
 --------------------------------------------------------------------------------
