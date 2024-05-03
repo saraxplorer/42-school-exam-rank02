@@ -1,0 +1,23 @@
+ssize_t write(int fd, const void *buf, size_t count);
+2 ways to use write.
+#1. because it is expecting a pointer, a pointer needs to be made.
+    then the address to the pointer to the specific char needs to be passed. 
+
+#include <unistd.h>
+int main()
+{
+	char *str = "good"; //made a pointer
+	int i = 0; //int to track char
+	while (str[i]!='\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+Here,
+a: Pointer variable storing the memory address of the start of the string.
+&a: Memory address where the pointer a is stored.
+&a[i]: Memory address of the i-th character in the string a.
+so write(1, a, 1); will write ggggg
+  write(1, &a, 1);will print nothing
+  write(1, &str[i], 1);prints letter by letter
