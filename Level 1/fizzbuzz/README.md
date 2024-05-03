@@ -1,10 +1,12 @@
 journey to fizzbuzz:
 #1 consideration: integers for calculation and char 'num' for using in write function
-``c
+
+
+```c
 int main(void)
 {
     int i;
-    i = '1';
+    i = '1'; //'1' is a char
     while (i <= '9')
     {
         if (i % 3 == 0 && i % 5 == 0)
@@ -22,9 +24,15 @@ int main(void)
     }
     return 0;
 }
-``
-this wont work because '1' means char 1, ascii value of which is 49. So 49 will be used for the calculations. For using the modulus % or any other calculation, number must be integer. so we add + '0' with it 
-``c
+```
+
+this wont work because '1' means char 1, ascii value of which is 49. So 49 will be used for the calculations. For using the modulus % or any other calculation, number must be integer. 
+
+
+Now for using write fuction we do need char, not interger. so we add + '0' with it 
+
+
+```c
 int main(void)
 {
     int i;
@@ -47,5 +55,6 @@ int main(void)
     }
     return 0;
 }
-``
+```
+
 Then we divide the case with one digit and for two digits. Check out the soluton for that.
