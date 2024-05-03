@@ -1,6 +1,28 @@
 ssize_t write(int fd, const void *buf, size_t count);
-2 ways to use write.
-#1. because it is expecting a pointer, a pointer needs to be made.
+There are 3 ways to use write.
+#1. Using char literals as values: printing 0-9 or a to z or z to a as chars
+
+#include<unistd.h>
+int main()
+{
+	char a = '0';
+	while (a < '9')
+	{
+		write(1, &a, 1);
+		a++;
+	}	
+}
+
+
+#2. Using string literals like printing whatever with a newline.
+
+int main()
+{
+	write(1, "whatever\n", 9);
+}
+
+
+#3. because it is expecting a pointer, a pointer needs to be made.
     then the address to the pointer to the specific char needs to be passed. 
 
 #include <unistd.h>
@@ -21,3 +43,4 @@ a: Pointer variable storing the memory address of the start of the string.
 so write(1, a, 1); will write ggggg
   write(1, &a, 1);will print nothing
   write(1, &str[i], 1);prints letter by letter
+
