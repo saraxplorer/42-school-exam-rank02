@@ -13,3 +13,32 @@ there can be 2 cases- (argc < 2) and (argc > 2). we only need argc==2. so we wri
     else //cause there can be more cases
         write(1, "\n", 1);
 ```
+We can reverse write a string by counting it's length and then write backwods by reducing length
+```c
+int ft_strlen(char *str)
+{
+    int i = 0;
+    while (str[i]!='\0') //it iterates till a space!
+    {
+        i++;
+    }
+    return i;
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+    {
+        int len = ft_strlen(*argv);
+        while (len != 0)
+        {
+         write(1, &argv[1][len - 1], 1);
+         len--;
+        }
+    }
+    else
+        write(1, "\n", 1);
+    
+}
+```
+However, it can only write a string until without a space. because surprisingly! a space is considered '\0'! So we need to do the counting till argv[1][i] exists!
