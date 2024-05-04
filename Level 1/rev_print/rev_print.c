@@ -19,7 +19,7 @@ int main(int argc, char **argv)
          printf("%d\n", len);
         while (len != 0)
         {
-         write(1, &argv[1][len - 1], 1);
+         write(1, &argv[1][len - 1], 1);/len-1 coz indexing begins from 0
           len--;
         }
     }
