@@ -18,7 +18,7 @@ We can reverse write a string by counting it's length and then write backwods by
 int ft_strlen(char *str)
 {
     int i = 0;
-    while (str[i]!='\0') //it iterates till a space!
+    while (str[i]!='\0')
     {
         i++;
     }
@@ -29,10 +29,10 @@ int main(int argc, char **argv)
 {
     if (argc == 2)
     {
-        int len = ft_strlen(*argv);
+        int len = ft_strlen(*argv);//this was wrong, should be (argv[1])
         while (len != 0)
         {
-         write(1, &argv[1][len - 1], 1);
+         write(1, &argv[1][len - 1], 1);//len-1 coz indexing begins from 0
          len--;
         }
     }
@@ -41,4 +41,4 @@ int main(int argc, char **argv)
     
 }
 ```
-However, it can only write a string until without a space. because surprisingly! a space is considered '\0'! So we need to do the counting till argv[1][i] exists!
+
