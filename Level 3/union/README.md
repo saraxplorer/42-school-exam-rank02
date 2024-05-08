@@ -1,3 +1,6 @@
+These are the steps I follwed to reach union.
+
+Approach 1: It almost writes, it only cannot identify doubles. So there is Approach 2.
 Step 1: Write two strings if we have 2 arguments, otherwise write a newline
 ```c
 #include <unistd.h>
@@ -264,3 +267,86 @@ int main(int argc, char **argv)
 		write(1, "\n", 1);
 }
 ```
+
+Approach 2: 
+Step 1. write the first string without doubles.
+``` c
+#include <unistd.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		while (argv[1][i]!='\0')
+		{
+			int j = 0;
+			int dup = 0;
+			while (j < i)
+			{
+				if (argv[1][i] == argv[1][j])
+				{
+					dup = 1;
+					break ;
+				}
+				j++;
+			}
+			if (dup != 1)
+			{
+				write(1, &argv[1][i], 1);
+			}
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+It works because it writes each character to the output as soon as it's encountered, and the dup flag comes later, when duplicate is found. 
+Step 2. Now we do it for both stings
+``` c
+#include <unistd.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		while (argv[1][i]!='\0')
+		{
+			int j = 0;
+			int dup = 0;//reset for each char in argv[1]
+			while (j < i)
+			{
+				if (i!=j && (argv[1][i] == argv[1][j]))
+					dup = 1;
+				j++;
+			}
+			if (dup != 1)
+			{
+				write(1, &argv[1][i], 1);
+			}
+			i++;
+		}
+		i = 0;
+		while (argv[2][i]!= '\0')
+		{
+			int j = 0;
+			int dup = 0;
+			while (j < i)
+			{
+				if (i!=j && (argv[2][i] == argv[2][j]))
+					dup = 1;
+				j++;
+			}
+			if (dup != 1)
+				write(1, &argv[2][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+Step 3. Now we do them together / each-other: 
+
