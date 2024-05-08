@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 	if (argc == 2)
 	{
 		int i = 0;
-		while (argv[1][i] == ' ' || argv[1][i] == '\t')
+		while (argv[1][i] == ' ' || argv[1][i] == '\t')// '\t' is a tab
 			i++;
 		while (argv[1][i]!= ' ')
 		{
