@@ -1,0 +1,266 @@
+Step 1: Write two strings if we have 2 arguments, otherwise write a newline
+```c
+#include <unistd.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		int j = 0;
+		while (argv[1][i]!='\0')
+		{
+			write(1, &argv[1][i], 1);
+			i++;
+		}
+		while (argv[2][j]!= '\0')
+		{
+			write(1, &argv[2][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+Step 2: write all the chracters that match in both of them in one 
+``` c
+#include <unistd.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		int j;
+		while (argv[1][i]!='\0')
+		{
+			j = 0;//must reset j=0 for each iteration
+			while (argv[2][j]!='\0')
+			{
+				if (argv[1][i] == argv[2][j])
+				{
+					write(1, &argv[1][i], 1);
+					break; //stop searching once found a match
+				}
+				j++;
+			}
+			
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+Here i take go through the first string and then take one char by one char (that's why j=0 in each iterartion) from str 2 and compare with the whole str1. 
+if a match found write and "break". 
+
+Step 3. Now let's do the opposite, write the letters that are unique in each of them. For making it simpler, let's write the unique chars in str 1. 
+   I wanted to write each char if mismatched but let's explain why it is not as simple.
+```c
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		while (argv[1][i]!='\0')
+		{
+			int j = 0;//for each time i++, j should begin at 0
+			while (argv[2][j]!= '\0')
+			{
+				if (argv[1][i] != argv[2][j])
+				{
+					write(1, &argv[1][i], 1);
+				}
+				j++;
+			}
+			i++;
+		}
+	
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+It outputted ./a.out "rien" "cette phrase ne cache rien"         
+rrrrrrrrrrrrrrrrrrrrrrrriiiiiiiiiiiiiiiiiiiiiiiiieeeeeeeeeeeeeeeeeeeennnnnnnnnnnnnnnnnnnnnnnneeee    pppphhhhrrrraaaasssseeee    nnnneeee    ccccaaaacccchhhheeee    rrrriiiieeeennnn
+
+because I am comparing each character of argv[1] with every character of argv[2], I am writing the character from argv[1] to the output stream every time there's a mismatch.
+
+this happens for every character in argv[2], regardless of whether there's a match later in argv[2]. 
+
+To fix this, I should first detect if a char matches with any letter in the second string, then ONLY if they do not match any character in argv[2], write characters from argv[1] . 
+A flag can keep track whether a match is found and also be used to only write the character if no match is found after iterating through argv[2].
+``` c
+#include <unistd.h>
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		while (argv[1][i]!='\0')
+		{
+			int j = 0;//for each time i++, j should begin at 0
+			int flag_match = 0;
+			while (argv[2][j]!= '\0')
+			{
+				if (argv[1][i] == argv[2][j])
+				{
+					flag_match = 1;
+				}
+				j++;
+			}
+			if (flag_match != 1)
+				write(1, &argv[1][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+Step 4. Do the same for other one. This writes all the unique chars for both strings
+```c
+#include <unistd.h>
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		while (argv[1][i]!='\0')
+		{
+			int j = 0;//for each time i++, j should begin at 0
+			int flag_match = 0;
+			while (argv[2][j]!= '\0')
+			{
+				if (argv[1][i] == argv[2][j])
+				{
+					flag_match = 1;
+				}
+				j++;
+			}
+			if (flag_match != 1)
+				write(1, &argv[1][i], 1);
+			i++;
+		}
+		while (argv[2][i] != '\0')
+		{
+			int j = 0;
+			int flag_match = 0;
+			while (argv[1][j]!= '\0')
+			{
+				if (argv[2][i]== argv[1][j])
+					flag_match = 1;
+				j++;
+			}
+			if (flag_match != 1)
+				write(1, &argv[2][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+
+step 5. Now let's write the matched chars as well once. So I will add else if the flag is matched, write. 
+``` c
+#include <unistd.h>
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		while (argv[1][i]!='\0')
+		{
+			int j = 0;//for each time i++, j should begin at 0
+			int flag_match = 0;
+			while (argv[2][j]!= '\0')
+			{
+				if (argv[1][i] == argv[2][j])
+				{
+					flag_match = 1;
+				}
+				j++;
+			}
+			if (flag_match != 1)
+				write(1, &argv[1][i], 1);
+			else if (flag_match == 1)
+				write(1, &argv[1][i], 1);
+			i++;
+		}
+		while (argv[2][i] != '\0')
+		{
+			int j = 0;
+			int flag_match = 0;
+			while (argv[1][j]!= '\0')
+			{
+				if (argv[2][i]== argv[1][j])
+					flag_match = 1;
+				j++;
+			}
+			if (flag_match != 1)
+				write(1, &argv[2][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
+This writes both matched and unmatched ones but it does not check for doubles. Also the match and mismatch may not be necessary because the subject only requires to check for doubles.
+The following addition can skip consecutive same letters. 
+``` c
+#include <unistd.h>
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		int i = 0;
+		while (argv[1][i]!='\0')
+		{
+			int j = 0;//for each time i++, j should begin at 0
+			int flag_match = 0;
+			while (argv[2][j]!= '\0')
+			{
+				if (argv[1][i] == argv[2][j])
+				{
+					flag_match = 1;
+				}
+				j++;
+			}
+			if (flag_match != 1 && argv[1][i]!=argv[1][i+1])
+				write(1, &argv[1][i], 1);
+			else if (flag_match == 1 && argv[1][i]!=argv[1][i+1])
+				write(1, &argv[1][i], 1);
+			i++;
+		}
+		while (argv[2][i] != '\0')
+		{
+			int j = 0;
+			int flag_match = 0;
+			while (argv[1][j]!= '\0')
+			{
+				if (argv[2][i]== argv[1][j])
+					flag_match = 1;
+				j++;
+			}
+			if (flag_match != 1 && argv[2][i]!=argv[2][i+1])
+				write(1, &argv[2][i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "\n", 1);
+}
+```
