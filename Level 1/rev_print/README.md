@@ -1,8 +1,8 @@
+**New Concept: Lesson & Pseudo code**
 
+**Lesson 1:** 
 
-
-
-# Whenever question says: If the number of parameters is not 1, the program displays a newline.
+Whenever question says: If the number of parameters is not 1, the program displays a newline.
 there can be 2 cases- (argc < 2) and (argc > 2). we only need argc==2. so we write, 
 ```c
  if (argc == 2) //only case we need to work on
@@ -12,6 +12,8 @@ there can be 2 cases- (argc < 2) and (argc > 2). we only need argc==2. so we wri
     else //cause there can be more cases
         write(1, "\n", 1);
 ```
+
+**Pseudo code**
 We can reverse write a string by counting it's length and then write backwods by reducing length
 ```c
 int ft_strlen(char *str)
@@ -34,7 +36,7 @@ int main(int argc, char **argv)
          write(1, &argv[1][len - 1], 1);//len-1 coz indexing begins from 0
          len--;
         }
-    }
+    }This allows the main function to receive and process command-line arguments effectively.
     else
         write(1, "\n", 1);
     
