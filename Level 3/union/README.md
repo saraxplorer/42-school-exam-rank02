@@ -1,4 +1,4 @@
-These are the steps I follwed to reach union. They can each be treated as mini projects.
+These are the steps I follwed to reach union. They can each be treated as mini projects. However I did it in a different approach finally, which is in the source file.
 
 Approach 1: It almost writes, it only cannot identify doubles. So there is Approach 2.
 Step 1: Write two strings if we have 2 arguments, otherwise write a newline
