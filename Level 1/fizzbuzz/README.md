@@ -1,6 +1,6 @@
-journey to fizzbuzz:
-#1 consideration: integers for calculation and char 'num' for using in write function
+**New Concept: #lesson**
 
+**#1 lesson: integers needed for calculation**
 
 ```c
 int main(void)
@@ -25,11 +25,10 @@ int main(void)
     return 0;
 }
 ```
-
 this wont work because '1' means char 1, ascii value of which is 49. So 49 will be used for the calculations. For using the modulus % or any other calculation, number must be integer. 
 
 
-Now for using write fuction we do need char, not interger. so we add + '0' with it 
+**#2 lesson: Now for using write fuction we do need char, not interger. so we add + '0' with it**
 
 
 ```c
