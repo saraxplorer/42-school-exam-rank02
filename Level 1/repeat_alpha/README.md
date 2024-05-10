@@ -1,4 +1,4 @@
-journey to repeat_alpha:
+**New concepts: using ASCII; read the whole process**
 
 1. Calculate how many times each letter should be printed
 
