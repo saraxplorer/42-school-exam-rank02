@@ -1,0 +1,3 @@
+ARGV:
+The argv parameter stands for "argument vector" and is an array of strings(char *argv[])(most of the time), which is equivalent to char **argv.
+This allows the main function to receive and process command-line arguments effectively.
