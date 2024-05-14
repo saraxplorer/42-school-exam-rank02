@@ -11,14 +11,17 @@ STEP 1. Find whether it is a palindrome:
                 'i' or start every time.
    
 STEP 2. If it is palindrome, find the longest one by compare and update:
+
       2.1. calculate length of current string, then compare inside the loop. That way any palindrome found can be counted.
 
 STEP 3. Then print the longest one:
+
       3.1. If a palindrome with maximum length is found we calculate the palindrome lenght, which is by adding the start position with             the maximum length
       3.2. run a loop until the start reaches the palindrome length and write
 
 
 ***explanation how does != differ from < ????***
+
 The != operator means "not equal to", and it's used to check if two values are not equal to each other. On the other hand, the < operator means "less than", and it's used to check if one value is smaller than another.
 
 In the context of comparing start and end positions in the palindrome-checking function:
