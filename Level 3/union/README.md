@@ -1,4 +1,12 @@
-Development journey:
+Development journey: the one that worked
+
+Step 1. Join the two strings:
+
+	1.1. Join them without allocating memory.
+
+Step 2. 
+
+Development journey: the one that did not work
 This is not the solution to the problem. These were my first approaches. They can each be treated as mini projects. However I did it in a different approach finally, which is in the source file.
 
 Approach 1: It almost writes, it only cannot identify doubles. So there is Approach 2.
