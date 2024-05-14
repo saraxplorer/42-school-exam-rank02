@@ -1,4 +1,5 @@
 Development steps:
+
 STEP 1. Find whether it is a palindrome:
 
       1.1. make a function that gets a start and end point, compares those points and subsequent points in a loop, the one by one, 
