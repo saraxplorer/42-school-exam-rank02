@@ -3,10 +3,10 @@ integers can be both numeric and non numeric. the integer of letters are the asc
 'A' corresponds to 65
 'B' corresponds to 66
 'C' corresponds to 67
-'`!' corresponds to the integer 33
-'`#' corresponds to the integer 35
-'`$' corresponds to the integer 36
-'`%' corresponds to the integer 37
+'!' corresponds to the integer 33
+'#' corresponds to the integer 35
+'$' corresponds to the integer 36
+'%' corresponds to the integer 37
 
 On the other hand, numbers can be characters
 
