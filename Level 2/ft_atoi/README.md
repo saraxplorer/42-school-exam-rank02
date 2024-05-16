@@ -18,7 +18,7 @@ Step 2. if + sign, skip, if -, update variable sign
 
 Step 3. main calculation:
 
-  3.1. take an interger(to return), initialize to 0,
-  3.2. make a while loop with limits 0-9
-  3.3. then multiply the int with 10 for moving digits to right
-  3.4. then minus the '0' from the given char/str to make it int from char
+    3.1. take an interger(to return), initialize to 0,
+    3.2. make a while loop with limits 0-9
+    3.3. then multiply the int with 10 for moving digits to right
+    3.4. then minus the '0' from the given char/str to make it int from char
