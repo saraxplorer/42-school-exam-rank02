@@ -45,6 +45,6 @@ Step 2. if the first char is a minus, we make the int sign -1 and move one char 
 
 Step 3. Update the sring as all lowercase because the base of hexadecimal is lowercase.
 
-    but, we encounter a challange here, we cannot update the string because it is a "const char".
+    Challange: we cannot update the string because it is a "const char".
     Solution: we make a variable to store the changed value
 Step 4. 
