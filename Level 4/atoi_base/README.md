@@ -40,8 +40,11 @@ The ASCII value 49 represents the character '1'.
 
 **Development Steps**
 Step 1. first we make a while loop iterate through the string.
+
 Step 2. if the first char is a minus, we make the int sign -1 and move one char ahead.
+
 Step 3. Update the sring as all lowercase because the base of hexadecimal is lowercase.
+
     but, we encounter a challange here, we cannot update the string because it is a "const char".
     Solution: we make a variable to store the changed value
 Step 4. 
