@@ -1,4 +1,4 @@
-Step 1. Convert a single digit character to an integer (base 10):
+**Step 1. Convert a single digit character to an integer (base 10):**
 
 Write a function to convert a single character ('0' to '9') to its corresponding integer value.
 Example: '3' should be converted to 3.
@@ -24,22 +24,120 @@ int main()
 }
 ```
 
-Step 2. Convert a single hexadecimal character to an integer (base 16):
+**Step 2. Convert a single hexadecimal character to an integer (base 16):**
 
 Extend the function to handle hexadecimal characters ('0' to '9' and 'a' to 'f', 'A' to 'F').
 Example: 'A' should be converted to 10, 'f' should be converted to 15.
-Convert a string of digits to an integer (base 10):
+**Theory:** letter - 'A': This part calculates the difference of the given letter relative to the character 'A'. For example, if the letter is 'A', the result will be 0. If the letter is 'B', the result will be 1, and so on. + 10: After calculating the offset, we add 10 to the result. 
+This is because in hexadecimal notation, the characters 'A' to 'F' represent the numbers 10 to 15 in base 10.
+
+``` c
+int char_to_int(char letter)
+{
+	if (letter >= '0' && letter <= '9')
+		letter = letter - '0';
+	if (letter >= 'a' && letter <= 'z')
+		letter = letter - 'a' + 10;
+	if (letter >= 'A' && letter <= 'Z')
+		letter = letter - 'A' + 10;
+	return letter;
+}
+
+#include <stdio.h>
+int main()
+{
+	char input = 'D';
+	printf("%d\n", input);//ASCII value of input is printed
+	printf("%d", char_to_int(input));//return of the function printed
+}
+```
+
+**Ster 3. Convert a string of digits to an integer (base 10):**
 
 Write a function to convert a string of characters representing a decimal number (e.g., "1234") to an integer.
 Example: "1234" should be converted to 1234.
-Handle negative numbers in base 10:
+
+**Theory:** 
+1. It takes a pointer to the string and returns an int. So we make an int to store the result and return
+2. the previous result must be added in each iteration otherwise, it will only give out the result of the last iteration.
+3. the result must be moved to the left by *10 in each iteration. Otherwise it will give garbage value
+``` c
+int char_to_int(char *str)
+{
+	int i = 0;
+	int result = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i]>= '0' && str[i] <= '9')
+		{
+			result = result * 10;//shift the result to left
+			result = result + str[i] - '0';//add the prev results
+		}
+		i++;
+	}
+	
+	return result;
+}
+
+#include <stdio.h>
+int main()
+{
+	char *input = "234567";
+	printf("%d", char_to_int(input));//return of the function printed
+}
+```
+**Step 4. Handle negative numbers in base 10:**
 
 Extend the string-to-integer function to handle negative numbers (e.g., "-1234").
 Example: "-1234" should be converted to -1234.
-Convert a string of hexadecimal digits to an integer (base 16):
+```c
+int char_to_int(char *str)
+{
+	int i = 0;
+	int result = 0;
+	int sign = 1;
+	if (str[0] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i] != '\0')
+	{
+		if (str[i]>= '0' && str[i] <= '9')
+		{
+			result = result * 10;//shift the result to left
+			result = result + str[i] - '0';//add the prev results
+		}
+		i++;
+	}
+	
+	return (sign * result);
+}
+
+#include <stdio.h>
+int main()
+{
+	char *input = "-234567";
+	printf("%d", char_to_int(input));//return of the function printed
+}
+```
+***Step 5. Convert a string of hexadecimal digits to an integer (base 16):**
 
 Write a function to convert a string of hexadecimal characters (e.g., "1A3f") to an integer.
 Example: "1A3f" should be converted to 6719.
+**Theory**
+Why Multiply by 16?
+Hexadecimal is a base-16 number system. This means each digit represents a power of 16, just as each digit in a decimal (base-10) number represents a power of 10.
+
+Place Value in Different Bases:
+
+Decimal (base 10): Each digit is multiplied by a power of 10. For example, 1234 in decimal is calculated as:
+1×10^3+2×10^2+3×10^1+4×10^0
+
+Hexadecimal (base 16): Each digit is multiplied by a power of 16. For example, 1A3F in hexadecimal is calculated as:
+1×16^3+𝐴×16^2+3×16^1+𝐹×16^0
+Here, A = 10 and F = 15 in decimal.
+
 Generalize the function to handle different bases (up to base 16):
 
 Extend the function to handle any base between 2 and 16, using the same logic as for base 10 and base 16.
