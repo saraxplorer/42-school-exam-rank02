@@ -1,4 +1,49 @@
-Let's read a quick tutorial about what number base mean.
+Step 1. Convert a single digit character to an integer (base 10):
+
+Write a function to convert a single character ('0' to '9') to its corresponding integer value.
+Example: '3' should be converted to 3.
+
+**Theory: For digits '0' through '9', the ASCII values are sequential. To convert a character representing a digit to its corresponding integer value, you can subtract the ASCII value of '0' from the ASCII value of the character:
+
+integer_value = char − ′0′
+
+example: For 0: ’0’−′0′ == 48−48 = 0
+``` c
+int char_to_int(char digit)
+{
+	digit = digit - '0';
+	return digit;
+}
+
+#include <stdio.h>
+int main()
+{
+	char input = '7';
+	printf("%d\n", input);//ASCII value of input is printed
+	printf("%d", char_to_int(input));//return of the function printed
+}
+```
+
+Step 2. Convert a single hexadecimal character to an integer (base 16):
+
+Extend the function to handle hexadecimal characters ('0' to '9' and 'a' to 'f', 'A' to 'F').
+Example: 'A' should be converted to 10, 'f' should be converted to 15.
+Convert a string of digits to an integer (base 10):
+
+Write a function to convert a string of characters representing a decimal number (e.g., "1234") to an integer.
+Example: "1234" should be converted to 1234.
+Handle negative numbers in base 10:
+
+Extend the string-to-integer function to handle negative numbers (e.g., "-1234").
+Example: "-1234" should be converted to -1234.
+Convert a string of hexadecimal digits to an integer (base 16):
+
+Write a function to convert a string of hexadecimal characters (e.g., "1A3f") to an integer.
+Example: "1A3f" should be converted to 6719.
+Generalize the function to handle different bases (up to base 16):
+
+Extend the function to handle any base between 2 and 16, using the same logic as for base 10 and base 16.
+Example: "101" in base 2 should be converted to 5 in base 10, "1A" in base 16 should be converted to 26 in base 10.Let's read a quick tutorial about what number base mean.
 https://github.com/saraxplorer/bits_on_c/tree/731d6a1c5136d7a1a0fd9a3207e03b0c5e3575fa/Number%20Bases
 
 Now read the subject again. 
