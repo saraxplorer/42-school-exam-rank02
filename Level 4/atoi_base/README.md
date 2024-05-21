@@ -138,10 +138,13 @@ Hexadecimal (base 16): Each digit is multiplied by a power of 16. For example, 1
 1×16^3+𝐴×16^2+3×16^1+𝐹×16^0
 Here, A = 10 and F = 15 in decimal.
 
-Generalize the function to handle different bases (up to base 16):
+**Step 6. Generalize the function to handle different bases (up to base 16):**
 
 Extend the function to handle any base between 2 and 16, using the same logic as for base 10 and base 16.
-Example: "101" in base 2 should be converted to 5 in base 10, "1A" in base 16 should be converted to 26 in base 10.Let's read a quick tutorial about what number base mean.
+Example: "101" in base 2 should be converted to 5 in base 10, "1A" in base 16 should be converted to 26 in base 10. 
+
+
+Let's read a quick tutorial about what number base mean.
 https://github.com/saraxplorer/bits_on_c/tree/731d6a1c5136d7a1a0fd9a3207e03b0c5e3575fa/Number%20Bases
 
 Now read the subject again. 
