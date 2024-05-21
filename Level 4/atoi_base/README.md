@@ -38,6 +38,16 @@ The ASCII table assigns numeric values to characters.In the ASCII table, the num
 The ASCII value 48 represents the character '0'.
 The ASCII value 49 represents the character '1'.
 
+
+**Breakdown**
+Problem 1. convert a char to int.  
+
+
+
+
+
+
+
 **Development Steps**
 Step 1. first we make a while loop iterate through the string.
 
