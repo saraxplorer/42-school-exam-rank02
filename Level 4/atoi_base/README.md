@@ -3,7 +3,7 @@ Step 1. Convert a single digit character to an integer (base 10):
 Write a function to convert a single character ('0' to '9') to its corresponding integer value.
 Example: '3' should be converted to 3.
 
-**Theory: For digits '0' through '9', the ASCII values are sequential. To convert a character representing a digit to its corresponding integer value, you can subtract the ASCII value of '0' from the ASCII value of the character:
+**Theory:** For digits '0' through '9', the ASCII values are sequential. To convert a character representing a digit to its corresponding integer value, you can subtract the ASCII value of '0' from the ASCII value of the character:
 
 integer_value = char − ′0′
 
