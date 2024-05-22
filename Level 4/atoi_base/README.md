@@ -36,9 +36,9 @@ int char_to_int(char letter)
 {
 	if (letter >= '0' && letter <= '9')
 		letter = letter - '0';
-	if (letter >= 'a' && letter <= 'z')
+	if (letter >= 'a' && letter <= 'f')
 		letter = letter - 'a' + 10;
-	if (letter >= 'A' && letter <= 'Z')
+	if (letter >= 'A' && letter <= 'F')
 		letter = letter - 'A' + 10;
 	return letter;
 }
@@ -70,8 +70,8 @@ int char_to_int(char *str)
 	{
 		if (str[i]>= '0' && str[i] <= '9')
 		{
-			result = result * 10;//shift the result to left
-			result = result + str[i] - '0';//add the prev results
+			result = result * 10;//shift the result to left by multiplying with base
+			result = result + str[i] - '0';//add the multiplication results
 		}
 		i++;
 	}
