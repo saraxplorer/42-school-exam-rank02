@@ -10,12 +10,12 @@ int main(int argc, char **argv)
 		while (argv[1][i] != '\0')
 		{
 			if (argv[1][i] == ' ' || argv[1][i] == '\t')
-				flag = 1;//flag 1, if we find one space
-			if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))// if a word if found
+				flag = 1;//then while proceeds and if more spaces found, flag will still be 1
+			if (!(argv[1][i] == ' ' || argv[1][i] == '\t'))// if a letter if found
 			{
 				if (flag == 1)
-					write(1, " ", 1);//write one space manually
-				flag = 0;//and set the flag to 0 for next space/word
+					write(1, " ", 1);//write ONLY one space for one or multiple spaces found
+				flag = 0;//it is a must for the next space or bunch of spaces
 				write(1, &argv[1][i], 1);
 			}
 			i++;
