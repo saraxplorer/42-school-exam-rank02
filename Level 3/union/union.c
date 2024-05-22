@@ -3,7 +3,7 @@
 int check(char *str, int c, int index)
 {
     int i = 0;
-    while (i < index)
+    while (i < index)//This line is making sure I do NOT compare the same char in the same string
     {
         if (str[i] == c)
             return 0;
