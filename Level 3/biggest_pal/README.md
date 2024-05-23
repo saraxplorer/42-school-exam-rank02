@@ -9,7 +9,15 @@ STEP 1. Find whether it is a palindrome:
         1.1.2.  to get the start and end point, we simply send one char as index (example i), from a loop, then send another series
                 char from another loop(example j).for every i, the rest of the string will be sent using j++. So j gets updated as
                 'i' or start every time.
-   
+  
+   **How i and j Detect Palindromes:***
+On the first iteration, both i and j are 0. The pal function checks the substring argv[1][0...0], which is just the first character. A single character is always a palindrome.
+In subsequent iterations, j increments from i to the end of the string, checking progressively larger substrings.
+For example:
+For i = 0, j will be 0, 1, 2, 3, ... checking substrings argv[1][0...0], argv[1][0...1], argv[1][0...2], etc.
+For i = 1, j will be 1, 2, 3, ... checking substrings argv[1][1...1], argv[1][1...2], argv[1][1...3], etc.
+This way, the program checks all possible substrings and identifies the longest palindrom
+
 STEP 2. If it is palindrome, find the longest one by compare and update:
 
       2.1. calculate length of current string, then compare inside the loop. That way any palindrome found can be counted.
