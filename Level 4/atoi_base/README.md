@@ -250,4 +250,3 @@ Step 3. Update the sring as all lowercase because the base of hexadecimal is low
 
     Challange: we cannot update the string because it is a "const char".
     Solution: we make a variable to store the changed value
-Step 4. 
