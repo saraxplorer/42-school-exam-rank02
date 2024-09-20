@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 
 		while (argv[1][i]!= '\0')
 		{
-			int j = i;//start each iteration from i; j iterates from i to end for each 'ith' position
+			int j = i;//j always starts from i's position then moves to the end
 			while (argv[1][j]!='\0')//'i' is constant here for each iteration; j is main iterator from here on
 			{
 				if (palli(argv[1], i, j) == 1)//i is start(because it is contant in each iteration, j increases)
