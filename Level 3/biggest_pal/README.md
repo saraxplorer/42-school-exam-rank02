@@ -1,8 +1,14 @@
 **Summary of Logic:**
-Outer loop (i): Iterate through each character in the string.
+
+Outer loop (i): Iterate through each character in the string./
+
 Inner loop (j): For each starting position i, extend the end of the substring (j) to check all possible substrings starting from i.
+
 Palindrome check: For each substring (i to j), check if it's a palindrome using palli().
-Update longest palindrome: If a palindrome is found, calculate its length and compare it with the longest palindrome found so far. Update if it's longer.Development steps:
+
+Update longest palindrome: If a palindrome is found, calculate its length and compare it with the longest palindrome found so far. Update if it's longer.
+
+Development steps:
 
 STEP 1. Find whether it is a palindrome:
 
